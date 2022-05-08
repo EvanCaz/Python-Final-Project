@@ -1,0 +1,8 @@
+*
+# ignores all files
+
+!*.gitignore
+!*.py
+!*.md
+!*.csv
+# the ! tells git to unignore all files with those extensions
