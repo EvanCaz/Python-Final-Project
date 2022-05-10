@@ -34,5 +34,12 @@ def best_hotel(csv_file):
     # find out hotels and their scores
     hotel_score = csv_file[["Name", "Score"]]
     print(hotel_score)
-
+    #skiiping as i am not sure specifcally what i am supposed to do
+def five_star_hotels(csv_file):
+    five_star = csv_file["Stars"]
+    counter = 0
+    for index in five_star:
+        if index == 5:
+            counter += 1
+    return counter
 

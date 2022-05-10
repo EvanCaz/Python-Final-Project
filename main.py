@@ -20,11 +20,15 @@ def main():
 
     all_data = pd.read_csv("hotel-reviews.csv")
     print("There are", len(fn.unique_hotels(all_data)), "unique hotels in this file.")
-    print("These hotels are: ")
-    for i in fn.unique_hotels(all_data):
-        print(i, ": ", end="")
+    print("These hotels are as follows: ")
+    for index in fn.unique_hotels(all_data):
+        print(index, ": ", end="")
     print()
-    print(fn.best_hotel(all_data))
+    print()
+    # print(fn.best_hotel(all_data))
+    # skipping until I am sure what quetsion means
+    # print(all_data.head(10))
+    print(fn.five_star_hotels(all_data))
 
 
 main()
