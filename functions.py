@@ -22,7 +22,7 @@ def unique_hotels(csv_file):
     # first created a list of all hotels with repeats
     # that is the first column in the file
     hotel_list = []
-    all_hotels = csv_file["User country"]
+    all_hotels = csv_file["Name"]
     for index in all_hotels:
         # print(index)
         hotel_list.append(index)
