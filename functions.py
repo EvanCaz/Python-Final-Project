@@ -36,10 +36,10 @@ def best_hotel(csv_file):
     print(hotel_score)
     #skiiping as i am not sure specifcally what i am supposed to do
 def five_star_hotels(csv_file):
-    five_star = csv_file["Stars"]
+    five_star = list(csv_file["Stars"])
     counter = 0
     for index in five_star:
-        if index == 5:
+        if index == "5":
             counter += 1
     return counter
 

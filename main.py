@@ -28,7 +28,7 @@ def main():
     # print(fn.best_hotel(all_data))
     # skipping until I am sure what quetsion means
     # print(all_data.head(10))
-    print(fn.five_star_hotels(all_data))
+    print("There",fn.five_star_hotels(all_data), "five star hotels")
 
 
 main()
