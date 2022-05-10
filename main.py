@@ -3,8 +3,6 @@
 # Final
 # Driver File
 ################
-
-import numpy as np
 import sys
 import functions as fn 
 import pandas as pd
@@ -18,12 +16,11 @@ def main():
     # variabel_name[''] or retunrs the specifc column, usuful for finding out all uniqe hotels in the file
     # variabel_name[['Name', 'other column', 'other column']] will return more than one column, does not have to be in the same order as csv file
 
-    all_data = pd.read_csv("hotel-reviews.csv")
+    all_data = pd.read_csv(sys.argv[1])
     print("There are", len(fn.unique_hotels(all_data)), "unique hotels in this file.")
-    print("These hotels are as follows: ")
+    print("These hotels are as follow... " "\n")
     for index in fn.unique_hotels(all_data):
-        print(index, ": ", end="")
-    print()
+        print(index)
     print()
     # print(fn.best_hotel(all_data))
     # skipping until I am sure what quetsion means

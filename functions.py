@@ -10,7 +10,7 @@ import pandas as pd
 # print unique hotels DONE
 # hotel with the highest average review
 # number of 5 star hotels DONE
-# number of hotels with a tennis court
+# number of hotels with a tennis court DONE
 #
 # Per Hotel Tasks:
 # average score
