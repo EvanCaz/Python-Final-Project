@@ -25,8 +25,7 @@ def main():
     # print(fn.best_hotel(all_data))
     # skipping until I am sure what quetsion means
     # print(all_data.head(10))
-    print("There are",fn.five_star_hotels(all_data, True), "five star hotels.")
-    print("There are",fn.five_star_hotels(all_data, False), "hotels with a tennis court.")
-
-
+    print("There are",fn.tennis_star_hotels(all_data, True), "five star hotels.")
+    print("There are",fn.tennis_star_hotels(all_data, False), "hotels with a tennis court.")
+    print(fn.hotel_stars(all_data))
 main()

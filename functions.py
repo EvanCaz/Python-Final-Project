@@ -35,7 +35,8 @@ def best_hotel(csv_file):
     hotel_score = csv_file[["Name", "Score"]]
     print(hotel_score)
     #skiiping as i am not sure specifcally what i am supposed to do
-def five_star_hotels(csv_file, FLAG=False):
+    
+def tennis_star_hotels(csv_file, FLAG=False):
     five_star = list(csv_file["Stars"])
     tennis = list(csv_file["Tennis court"])
     counter = 0
@@ -48,5 +49,8 @@ def five_star_hotels(csv_file, FLAG=False):
             if index == "YES":
                 counter += 1
     return counter
+def hotel_stars(csv_file):
+    hotels_stars = csv_file.iloc[, 1]
+    return hotels_stars
 
 
