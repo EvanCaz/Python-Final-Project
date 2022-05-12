@@ -19,15 +19,8 @@ import pandas as pd
 # number of rooms
 
 def unique_hotels(csv_file):
-    # first created a list of all hotels with repeats
-    # that is the first column in the file
-    hotel_list = []
-    all_hotels = csv_file["Name"]
-    for index in all_hotels:
-        # print(index)
-        hotel_list.append(index)
-    # use a set to create a list of free of duplicates
-    unique_hotels = list(set(hotel_list))
+
+    unique_hotels = csv_file["Name"].unique()
     return unique_hotels
 
 def best_hotel(csv_file):
@@ -37,20 +30,19 @@ def best_hotel(csv_file):
     #skiiping as i am not sure specifcally what i am supposed to do
     
 def tennis_star_hotels(csv_file, FLAG=False):
-    five_star = list(csv_file["Stars"])
-    tennis = list(csv_file["Tennis court"])
-    counter = 0
     if FLAG == True:
-        for index in five_star:
-            if index == "5":
-                counter += 1
-    if FLAG == False:
-        for index in tennis:
-            if index == "YES":
-                counter += 1
+        determinate = "5"
+        lists = list(csv_file["Stars"])
+    else:   
+        lists = list(csv_file["Tennis court"])
+        determinate = "YES" 
+    counter = 0
+    for index in lists:
+        if index == determinate:
+            counter += 1
     return counter
 def hotel_stars(csv_file):
-    hotels_stars = csv_file.iloc[, 1]
+    hotels_stars = csv_file.iloc[1, 1]
     return hotels_stars
 
 
