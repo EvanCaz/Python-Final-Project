@@ -50,8 +50,10 @@ def hotel_stars(csv_file):
     print("The hotel with the highest average score is:",max(score_dict, key=score_dict.get))
     return 
 def num_reviews(csv_file):
-    all_hotels = unique_hotels(csv_file)
-    for hotel in all_hotels:
-        print(csv_file.qeury("Name = @hotel"))
+    a = unique_hotels(csv_file)
+    print(type(a))
+    b = a[0]
+    reviews = csv_file.query("Name == @b")
+    print(len(reviews))
     return
 

@@ -26,4 +26,5 @@ def main():
     print("There are", len(fn.tennis_star_hotels(all_data, False)), "Hotels with tennis courts.") 
     print()
     fn.hotel_stars(all_data)
+    fn.num_reviews(all_data) 
 main()
