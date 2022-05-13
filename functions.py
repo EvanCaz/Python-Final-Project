@@ -5,12 +5,13 @@
 ################
 import sys
 import pandas as pd
+import numpy as np
 
 # Global Tasks:
 # print unique hotels DONE
 # hotel with the highest average review
-# number of 5 star hotels DONE
-# number of hotels with a tennis court DONE
+# number of 5 star hotels Done
+# number of hotels with a tennis court Done
 #
 # Per Hotel Tasks:
 # average score
@@ -19,30 +20,29 @@ import pandas as pd
 # number of rooms
 
 def unique_hotels(csv_file):
-
-    unique_hotels = csv_file["Name"].unique()
+    unique_hotels = list(csv_file["Name"].unique())
     return unique_hotels
 
 def best_hotel(csv_file):
-    # find out hotels and their scores
     hotel_score = csv_file[["Name", "Score"]]
     print(hotel_score)
-    #skiiping as i am not sure specifcally what i am supposed to do
     
 def tennis_star_hotels(csv_file, FLAG=False):
     if FLAG == True:
-        determinate = "5"
-        lists = list(csv_file["Stars"])
-    else:   
-        lists = list(csv_file["Tennis court"])
-        determinate = "YES" 
-    counter = 0
-    for index in lists:
-        if index == determinate:
-            counter += 1
-    return counter
+        tennis_star = csv_file.query("Stars == '5'")["Name"].unique()
+    # query returns all reviews in column stars with value 5, then unique 
+    # removes all repeat reviews 
+    if FLAG == False:
+        tennis_star = csv_file.query("`Tennis court` == 'YES'")["Name"].unique()
+    # google says add backticks for columns with spaces
+    return tennis_star
+    # No error checking for incorrect values in csv file
 def hotel_stars(csv_file):
-    hotels_stars = csv_file.iloc[1, 1]
-    return hotels_stars
+    all_hotels = unique_hotels(csv_file)
+    for hotel in all_hotels:
+        one_hotel = csv_file.query("Name == @hotel")
+        array = np.asarray(one_hotel["Score"])
+        print(np.mean(array))
+    return 
 
 

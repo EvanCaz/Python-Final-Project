@@ -22,10 +22,8 @@ def main():
     for index in fn.unique_hotels(all_data):
         print(index)
     print()
-    # print(fn.best_hotel(all_data))
-    # skipping until I am sure what quetsion means
-    # print(all_data.head(10))
-    print("There are",fn.tennis_star_hotels(all_data, True), "five star hotels.")
-    print("There are",fn.tennis_star_hotels(all_data, False), "hotels with a tennis court.")
-    print(fn.hotel_stars(all_data))
+    print("There are", len(fn.tennis_star_hotels(all_data, True)), "Hotels with five stars.")
+    print("There are", len(fn.tennis_star_hotels(all_data, False)), "Hotels with tennis courts.") 
+    print()
+    fn.hotel_stars(all_data)
 main()
