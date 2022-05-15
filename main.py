@@ -7,7 +7,7 @@ import sys
 import functions as fn
 import pandas as pd
 
-char_format = 20
+char_format = 25
 num_format = 4
 def main():
     try:
