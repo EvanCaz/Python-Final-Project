@@ -1,23 +1,9 @@
 ################
-# Evan Castars_listares
+# Evan Cazares
 # Final
 # Functions
 ################
-import sys
 import pandas as pd
-import numpy as np
-
-# Global Tasks:
-# print unique hotels DONE
-# hotel with the highest average review DONE
-# number of 5 star hotels Done
-# number of hotels with a tennis court Done
-#
-# Per Hotel Tasks:
-# average score DONE
-# stars DONE
-# number of rewviews DONE
-# number of rooms DONE
 
 def unique_hotels(csv_file):
     unique_hotels = list(csv_file["Name"].unique())
@@ -55,5 +41,3 @@ def per_hotel_stats(csv_file):
         star_rooms_reviews_score = [len(one_hotel)] + rooms + stars + [mean]
         per_hotel[hotel] = star_rooms_reviews_score
     return per_hotel
-        
-    
