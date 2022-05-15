@@ -15,7 +15,7 @@ import numpy as np
 #
 # Per Hotel Tasks:
 # average score DONE
-# stars
+# stars DONE
 # number of rewviews DONE
 # number of rooms DONE
 
@@ -45,16 +45,8 @@ def hotel_average_stars(csv_file):
     print()
     print("The hotel with the highest average score is:",max(score_dict, key=score_dict.get, ))
     return 
-def num_reviews(csv_file):
-    hotel_list = unique_hotels(csv_file)
-    for hotel in hotel_list:
-        reviews = csv_file.query("Name == @hotel")
-        # repetitive from the previous function, not sure how to combine as they use same variable
-        # going to create a dict to streamline process maybe (cannot do this idk how)
-        print("The ", hotel, "received", len(reviews), "reviews.",)
-    return
 
-def num_rooms_stars(csv_file):
+def num_rooms_stars_reviews(csv_file):
     hotel_list =  unique_hotels(csv_file)
     star_rooms_reviews = []
     room_dict = {}
