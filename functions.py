@@ -30,7 +30,7 @@ def tennis_star_hotels(csv_file, FLAG=False):
         tennis_star = csv_file.query("`Tennis court` == 'YES'")["Name"].unique()
     return tennis_star
 
-def per_hotel_stats(csv_file, FLAG = False):
+def per_hotel_stats(csv_file):
     hotel_list =  unique_hotels(csv_file)
     star_rooms_reviews_score = []
     per_hotel = {}
