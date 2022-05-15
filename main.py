@@ -22,7 +22,7 @@ def main():
 
     all_data = pd.read_csv(sys.argv[1])
     print("There are", len(fn.unique_hotels(all_data)), "unique hotels in this file. ", end="")
-    print(len(fn.tennis_star_hotels(all_data, True)), "of those hotels with five stars and", len(fn.tennis_star_hotels(all_data, False)), "of those hotels  tennis courts.")
+    print(len(fn.tennis_star_hotels(all_data, True)), "of those hotels have five stars and", len(fn.tennis_star_hotels(all_data, False)), "of those hotels have tennis courts.")
     print()
     fn.hotel_average_stars(all_data)
     print()
