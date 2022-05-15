@@ -34,6 +34,7 @@ def main():
     fn.hotel_average_stars(all_data)
     print()
     fn.num_reviews(all_data) 
+    print()
     fn.num_rooms(all_data)
     
 main()

@@ -61,6 +61,15 @@ def num_rooms(csv_file):
     hotel_list =  unique_hotels(csv_file)
     for hotel in hotel_list:
         a = csv_file.query("Name == @hotel")
-        b = a.query("Rooms in [int]")
+        b = a["Rooms"].tolist()
+        # I wish there was a toset() method
+        for value in b:
+            try:
+                value = int(value)
+            except:
+                b.remove(value)
+        rooms = set(b)
+        print("The number of rooms that", hotel, "has is", rooms )
+
     
-    return
+    return      
