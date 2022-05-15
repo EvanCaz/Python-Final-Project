@@ -30,17 +30,6 @@ def tennis_star_hotels(csv_file, FLAG=False):
         tennis_star = csv_file.query("`Tennis court` == 'YES'")["Name"].unique()
     return tennis_star
 
-def highest_stars(csv_file):
-    all_hotels = unique_hotels(csv_file)
-    score_dict = {}
-    for hotel in all_hotels:
-        one_hotel = csv_file.query("Name == @hotel")
-        scores = one_hotel.query("Score in ['1', '2', '3', '4', '5']")["Score"]
-        mean = scores.astype(int).mean()
-        score_dict[hotel] = mean
-    highest_stars = max(score_dict, key=score_dict.get)
-    return highest_stars
-
 def per_hotel_stats(csv_file, FLAG = False):
     hotel_list =  unique_hotels(csv_file)
     star_rooms_reviews_score = []
