@@ -8,9 +8,15 @@ import functions as fn
 import pandas as pd
 
 def main():
-
-    all_data = pd.read_csv(sys.argv[1])
-    # Still need to error proof the command line pass through thingy
+    try:
+        if len(sys.argv) != 2:
+            print("Did not enter a file")
+            sys.exit()
+        else:
+            all_data = pd.read_csv(sys.argv[1])
+    except FileNotFoundError or IndexError:
+        print("Incorrect file input")
+        sys.exit()
     print("There are", len(fn.unique_hotels(all_data)), "unique hotels in this file.")
     print(len(fn.tennis_star_hotels(all_data, True)), "of those hotels have five stars.")
     print(len(fn.tennis_star_hotels(all_data, False)), "of those hotels have tennis courts.")
