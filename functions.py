@@ -16,7 +16,7 @@ import numpy as np
 # Per Hotel Tasks:
 # average score DONE
 # stars
-# number of rewviews
+# number of rewviews DONE
 # number of rooms
 
 def unique_hotels(csv_file):
@@ -36,8 +36,8 @@ def tennis_star_hotels(csv_file, FLAG=False):
         tennis_star = csv_file.query("`Tennis court` == 'YES'")["Name"].unique()
     # google says add backticks for columns with spaces
     return tennis_star
-    # No error checking for incorrect values in csv file
-def hotel_stars(csv_file):
+    # No error checking for incorrect values in csv file such as something not YES or 5
+def hotel_average_stars(csv_file):
     all_hotels = unique_hotels(csv_file)
     score_dict = {}
     for hotel in all_hotels:
@@ -50,10 +50,17 @@ def hotel_stars(csv_file):
     print("The hotel with the highest average score is:",max(score_dict, key=score_dict.get))
     return 
 def num_reviews(csv_file):
-    a = unique_hotels(csv_file)
-    print(type(a))
-    b = a[0]
-    reviews = csv_file.query("Name == @b")
-    print(len(reviews))
+    hotel_list = unique_hotels(csv_file)
+    for hotel in hotel_list:
+        reviews = csv_file.query("Name == @hotel")
+        # repetitive from the previous function, not sure how to combine as they use same variable
+        print("The ", hotel, "received", len(reviews), 'reviews')
     return
 
+def num_rooms(csv_file):
+    hotel_list =  unique_hotels(csv_file)
+    for hotel in hotel_list:
+        a = csv_file.query("Name == @hotel")
+        b = a.query("Rooms in [int]")
+    
+    return
