@@ -47,10 +47,10 @@ def per_hotel_stats(csv_file, FLAG = False):
     per_hotel = {}
     for hotel in hotel_list:
         one_hotel = csv_file.query("Name == @hotel")
-        rooms_list = one_hotel["Rooms"].tolist()
-        stars_list = one_hotel['Stars'].tolist()
         scores = one_hotel.query("Score in ['1', '2', '3', '4', '5']")["Score"]
         mean = scores.astype(int).mean()
+        rooms_list = one_hotel["Rooms"].tolist()
+        stars_list = one_hotel['Stars'].tolist()
         for value in stars_list:
             try:
                 value = int(value)
