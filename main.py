@@ -7,6 +7,8 @@ import sys
 import functions as fn
 import pandas as pd
 
+char_format = 20
+num_format = 4
 def main():
     try:
         if len(sys.argv) != 2:
@@ -23,12 +25,12 @@ def main():
     print()
     for key in fn.per_hotel_stats(all_data):
         print(key, "has", end = "")
-        x = 20 - int(len(key))
-        for i in range(x):
+        char_spaces = char_format - int(len(key))
+        for i in range(char_spaces):
             print(" ", end = "")
         print(fn.per_hotel_stats(all_data)[key][1], "rooms, ", end = "")
-        y = 4 - int(len(fn.per_hotel_stats(all_data)[key][1]))
-        for i in range(y):
+        num_spaces = num_format - int(len(fn.per_hotel_stats(all_data)[key][1]))
+        for i in range(num_spaces):
             print(" ", end ="")
         print(fn.per_hotel_stats(all_data)[key][2],"stars, ", end = "")
         print(fn.per_hotel_stats(all_data)[key][0], "reviews, and an average score of", format(fn.per_hotel_stats(all_data)[key][3], '.4f'))
