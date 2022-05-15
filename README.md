@@ -1,2 +1,2 @@
 # final-project-1336
-# liner saerching, sorting, and returning information from a given file.
+# linear searching, sorting, and returning information from a given file with Pandas library.
