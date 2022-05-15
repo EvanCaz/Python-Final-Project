@@ -26,7 +26,12 @@ def main():
         print(fn.per_hotel_stats(all_data)[key][0], "reviews, and an average score of", format(fn.per_hotel_stats(all_data)[key][3], '.4f'))
     print()
     hotel_stats = fn.per_hotel_stats(all_data)
-    print("The hotel with the highest average score is", max(hotel_stats, key=lambda hotel: hotel_stats[hotel][3]), end="")
-    print(".")
+    try:
+        print("The hotel with the highest average score is", max(hotel_stats, key=lambda hotel: hotel_stats[hotel][3]), end="")
+        print(".")
+    except ValueError:
+        print("File is bad.")
+        sys.exit()
+
 
 main()
