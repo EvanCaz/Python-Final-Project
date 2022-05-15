@@ -35,6 +35,7 @@ def main():
     print()
     fn.num_reviews(all_data) 
     print()
-    fn.num_rooms(all_data)
+    for key in fn.num_rooms(all_data):
+        print("There are", fn.num_rooms(all_data)[key], "In", key)
     
 main()

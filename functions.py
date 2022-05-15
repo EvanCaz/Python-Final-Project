@@ -59,6 +59,7 @@ def num_reviews(csv_file):
 
 def num_rooms(csv_file):
     hotel_list =  unique_hotels(csv_file)
+    room_dict = {}
     for hotel in hotel_list:
         a = csv_file.query("Name == @hotel")
         b = a["Rooms"].tolist()
@@ -69,7 +70,8 @@ def num_rooms(csv_file):
             except:
                 b.remove(value)
         rooms = set(b)
-        print("The number of rooms that", hotel, "has is", rooms )
-
+        room_dict[hotel] = rooms
+        # I think i coudlve used a dict, then returned that and used in other functions to 
+        # make output neater
     
-    return      
+    return room_dict
