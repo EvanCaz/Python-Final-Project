@@ -22,14 +22,14 @@ def main():
 
     all_data = pd.read_csv(sys.argv[1])
     print("There are", len(fn.unique_hotels(all_data)), "unique hotels in this file. ", end="")
-    print(len(fn.tennis_star_hotels(all_data, True)), "of those hotels have five stars and", len(fn.tennis_star_hotels(all_data, False)), "of those hotels have tennis courts.")
+    print(len(fn.tennis_star_hotels(all_data, True)), "of those hotels have five stars and ", end="")
+    print(len(fn.tennis_star_hotels(all_data, False)), "of those hotels have tennis courts.")
     print()
     fn.hotel_average_stars(all_data)
     print()
-    for key in fn.num_rooms_stars_reviews(all_data):
-        print(key, "has", fn.num_rooms_stars_reviews(all_data)[key][1], "rooms and received", fn.num_rooms_stars_reviews(all_data)[key][2],"stars and", fn.num_rooms_stars_reviews(all_data)[key][0], "reviews.")
+    for key in fn.per_hotel_stats(all_data):
+        print(key, "has", fn.per_hotel_stats(all_data)[key][1], "rooms and received", fn.per_hotel_stats(all_data)[key][2],"stars and ", end="")
+        print(fn.per_hotel_stats(all_data)[key][0], "reviews.")
     print()
-    #for key in fn.num_stars(all_data):
-        #print(key, "received", fn.num_stars(all_data)[key][0], "stars")
     
 main()

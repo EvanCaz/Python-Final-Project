@@ -26,13 +26,10 @@ def unique_hotels(csv_file):
 def tennis_star_hotels(csv_file, FLAG=False):
     if FLAG == True:
         tennis_star = csv_file.query("Stars == '5'")["Name"].unique()
-    # query returns all reviews in column stars with value 5, then unique 
-    # removes all repeat reviews 
     if FLAG == False:
         tennis_star = csv_file.query("`Tennis court` == 'YES'")["Name"].unique()
-    # google says add backticks for columns with spaces
     return tennis_star
-    # No error checking for incorrect values in csv file such as something not YES or 5
+
 def hotel_average_stars(csv_file):
     all_hotels = unique_hotels(csv_file)
     score_dict = {}
@@ -46,10 +43,10 @@ def hotel_average_stars(csv_file):
     print("The hotel with the highest average score is:",max(score_dict, key=score_dict.get, ))
     return 
 
-def num_rooms_stars_reviews(csv_file):
+def per_hotel_stats(csv_file):
     hotel_list =  unique_hotels(csv_file)
     star_rooms_reviews = []
-    room_dict = {}
+    per_hotel = {}
     for hotel in hotel_list:
         x = csv_file.query("Name == @hotel")
         y = x["Rooms"].tolist()
@@ -67,7 +64,7 @@ def num_rooms_stars_reviews(csv_file):
                 y.remove(value)
         rooms = list(set(y))
         star_rooms_reviews = [len(x)] + rooms + stars 
-        room_dict[hotel] = star_rooms_reviews
-    return room_dict
+        per_hotel[hotel] = star_rooms_reviews
+    return per_hotel
         
     
