@@ -17,7 +17,7 @@ import numpy as np
 # average score DONE
 # stars
 # number of rewviews DONE
-# number of rooms
+# number of rooms DONE
 
 def unique_hotels(csv_file):
     unique_hotels = list(csv_file["Name"].unique())
@@ -47,31 +47,53 @@ def hotel_average_stars(csv_file):
         score_dict[hotel] = mean
         print("The average score for", hotel, "is", format(mean, '.4f'))
     print()
-    print("The hotel with the highest average score is:",max(score_dict, key=score_dict.get))
+    print("The hotel with the highest average score is:",max(score_dict, key=score_dict.get, ))
     return 
 def num_reviews(csv_file):
     hotel_list = unique_hotels(csv_file)
     for hotel in hotel_list:
         reviews = csv_file.query("Name == @hotel")
         # repetitive from the previous function, not sure how to combine as they use same variable
-        print("The ", hotel, "received", len(reviews), 'reviews')
+        # going to create a dict to streamline process maybe (cannot do this idk how)
+        print("The ", hotel, "received", len(reviews), "reviews.",)
     return
 
-def num_rooms(csv_file):
+def num_rooms_stars(csv_file):
     hotel_list =  unique_hotels(csv_file)
     room_dict = {}
     for hotel in hotel_list:
-        a = csv_file.query("Name == @hotel")
-        b = a["Rooms"].tolist()
-        # I wish there was a toset() method
-        for value in b:
+        x = csv_file.query("Name == @hotel")
+        y = x["Rooms"].tolist()
+        z = x['Stars'].tolist()
+        for value in z:
             try:
                 value = int(value)
             except:
-                b.remove(value)
-        rooms = set(b)
-        room_dict[hotel] = rooms
-        # I think i coudlve used a dict, then returned that and used in other functions to 
-        # make output neater
-    
+                z.remove(value)
+        stars = list(set(z))
+        for value in y:
+            try:
+                value = int(value)
+            except:
+                y.remove(value)
+        rooms = list(set(y))
+        star_rooms = rooms + stars
+        room_dict[hotel] = star_rooms
     return room_dict
+# these two functions are repetitive, trying to combine.
+def num_stars(csv_file):
+    hotel_list = unique_hotels(csv_file)
+    stars_dict = {}
+    for hotel in hotel_list:
+        z = csv_file.query("Name == @hotel")
+        x = z["Stars"].tolist()
+        for value in x:
+            try:
+                value = int(value)
+            except:
+                x.remove(value)
+        stars = list(set(x))
+        stars_dict[hotel] =  stars
+    return stars_dict
+        
+    
