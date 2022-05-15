@@ -42,6 +42,4 @@ def main():
     except ValueError:
         print("File is bad.")
         sys.exit()
-
-
 main()
