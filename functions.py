@@ -22,10 +22,6 @@ import numpy as np
 def unique_hotels(csv_file):
     unique_hotels = list(csv_file["Name"].unique())
     return unique_hotels
-
-def best_hotel(csv_file):
-    hotel_score = csv_file[["Name", "Score"]]
-    print(hotel_score)
     
 def tennis_star_hotels(csv_file, FLAG=False):
     if FLAG == True:
@@ -80,20 +76,5 @@ def num_rooms_stars(csv_file):
         star_rooms = rooms + stars
         room_dict[hotel] = star_rooms
     return room_dict
-# these two functions are repetitive, trying to combine.
-def num_stars(csv_file):
-    hotel_list = unique_hotels(csv_file)
-    stars_dict = {}
-    for hotel in hotel_list:
-        z = csv_file.query("Name == @hotel")
-        x = z["Stars"].tolist()
-        for value in x:
-            try:
-                value = int(value)
-            except:
-                x.remove(value)
-        stars = list(set(x))
-        stars_dict[hotel] =  stars
-    return stars_dict
         
     
