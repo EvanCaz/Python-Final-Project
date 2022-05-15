@@ -25,11 +25,10 @@ def main():
     print(len(fn.tennis_star_hotels(all_data, True)), "of those hotels have five stars and ", end="")
     print(len(fn.tennis_star_hotels(all_data, False)), "of those hotels have tennis courts.")
     print()
-    fn.hotel_average_stars(all_data)
-    print()
     for key in fn.per_hotel_stats(all_data):
         print(key, "has", fn.per_hotel_stats(all_data)[key][1], "rooms and received", fn.per_hotel_stats(all_data)[key][2],"stars and ", end="")
-        print(fn.per_hotel_stats(all_data)[key][0], "reviews.")
+        print(fn.per_hotel_stats(all_data)[key][0], "reviews and received an average score of.", format(fn.per_hotel_stats(all_data)[key][3], '.4f'))
     print()
+    
     
 main()
