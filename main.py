@@ -22,7 +22,15 @@ def main():
     print(len(fn.tennis_star_hotels(all_data, False)), "of those hotels have tennis courts.")
     print()
     for key in fn.per_hotel_stats(all_data):
-        print(key, "has", fn.per_hotel_stats(all_data)[key][1], "rooms,", fn.per_hotel_stats(all_data)[key][2],"stars, ", end="")
+        print(key, "has", end = "")
+        x = 20 - int(len(key))
+        for i in range(x):
+            print(" ", end = "")
+        print(fn.per_hotel_stats(all_data)[key][1], "rooms, ", end = "")
+        y = 4 - int(len(fn.per_hotel_stats(all_data)[key][1]))
+        for i in range(y):
+            print(" ", end ="")
+        print(fn.per_hotel_stats(all_data)[key][2],"stars, ", end = "")
         print(fn.per_hotel_stats(all_data)[key][0], "reviews, and an average score of", format(fn.per_hotel_stats(all_data)[key][3], '.4f'))
     print()
     hotel_stats = fn.per_hotel_stats(all_data)
