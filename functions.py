@@ -56,6 +56,7 @@ def num_reviews(csv_file):
 
 def num_rooms_stars(csv_file):
     hotel_list =  unique_hotels(csv_file)
+    star_rooms_reviews = []
     room_dict = {}
     for hotel in hotel_list:
         x = csv_file.query("Name == @hotel")
@@ -73,8 +74,8 @@ def num_rooms_stars(csv_file):
             except:
                 y.remove(value)
         rooms = list(set(y))
-        star_rooms = rooms + stars
-        room_dict[hotel] = star_rooms
+        star_rooms_reviews = [len(x)] + rooms + stars 
+        room_dict[hotel] = star_rooms_reviews
     return room_dict
         
     

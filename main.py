@@ -28,7 +28,7 @@ def main():
     fn.num_reviews(all_data) 
     print()
     for key in fn.num_rooms_stars(all_data):
-        print(key, "has", fn.num_rooms_stars(all_data)[key][0], "rooms and received", fn.num_rooms_stars(all_data)[key][1],"stars.")
+        print(key, "has", fn.num_rooms_stars(all_data)[key][1], "rooms and received", fn.num_rooms_stars(all_data)[key][2],"stars and", fn.num_rooms_stars(all_data)[key][0], "reviews.")
     print()
     #for key in fn.num_stars(all_data):
         #print(key, "received", fn.num_stars(all_data)[key][0], "stars")
