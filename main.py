@@ -29,6 +29,7 @@ def main():
         print(key, "has", fn.per_hotel_stats(all_data)[key][1], "rooms and received", fn.per_hotel_stats(all_data)[key][2],"stars and ", end="")
         print(fn.per_hotel_stats(all_data)[key][0], "reviews and received an average score of.", format(fn.per_hotel_stats(all_data)[key][3], '.4f'))
     print()
+    print("The hotel with the highest average score is", fn.highest_stars(all_data))
     
     
 main()
