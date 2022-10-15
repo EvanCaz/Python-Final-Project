@@ -31,7 +31,7 @@ def per_hotel_stats(csv_file):
                 value = int(value)
             except:
                 stars_list.remove(value)
-        stars = list(set(stars_list))
+        stars = list(set(stars_list)) 
         for value in rooms_list:
             try:
                 value = int(value)
